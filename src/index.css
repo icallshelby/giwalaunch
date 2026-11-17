@@ -1,0 +1,126 @@
+:root {
+  --bg: #05070d;
+  --bg2: #0b1020;
+  --card: #101828;
+  --card2: #16213a;
+  --line: #263252;
+  --text: #eef2ff;
+  --muted: #93a1bd;
+  --accent: #22d3ee;
+  --accent2: #8b5cf6;
+  --green: #34d399;
+  --amber: #fbbf24;
+  --red: #f87171;
+  --radius: 16px;
+  --max: 1080px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: radial-gradient(1200px 600px at 50% -10%, #131b36 0%, var(--bg) 55%);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button { font-family: inherit; cursor: pointer; }
+input, select { font-family: inherit; }
+
+.container { max-width: var(--max); margin: 0 auto; padding: 0 16px 64px; }
+
+/* ---------- header ---------- */
+header.site {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(5, 7, 13, 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  max-width: var(--max); margin: 0 auto; padding: 12px 16px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.logo { font-size: 20px; font-weight: 800; letter-spacing: 0.02em; color: var(--text); }
+.logo b { color: var(--accent); }
+.logo:hover { text-decoration: none; }
+nav.main { display: flex; gap: 4px; flex-wrap: wrap; }
+nav.main a {
+  color: var(--muted); padding: 8px 12px; border-radius: 10px; font-weight: 600; font-size: 14px;
+}
+nav.main a:hover { color: var(--text); text-decoration: none; background: var(--card); }
+nav.main a.active { color: var(--text); background: var(--card2); }
+.header-right { margin-left: auto; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.chain-badge {
+  font-size: 12px; font-weight: 700; color: var(--green);
+  border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px;
+  white-space: nowrap;
+}
+.chain-badge .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--green); margin-right: 6px; }
+
+/* ---------- buttons / inputs ---------- */
+.btn {
+  border: 1px solid var(--line); background: var(--card); color: var(--text);
+  border-radius: 12px; padding: 10px 16px; font-weight: 700; font-size: 14px;
+}
+.btn:hover { background: var(--card2); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #04222b; }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn.small { padding: 7px 12px; font-size: 13px; border-radius: 10px; }
+.input, select.input {
+  width: 100%; background: var(--bg2); border: 1px solid var(--line); color: var(--text);
+  border-radius: 12px; padding: 12px 14px; font-size: 15px; outline: none;
+}
+.input:focus { border-color: var(--accent); }
+label.field { display: block; font-size: 13px; font-weight: 700; color: var(--muted); margin: 14px 0 6px; }
+label.field:first-child { margin-top: 0; }
+
+/* ---------- cards / layout ---------- */
+.hero { padding: 36px 0 8px; }
+.hero h1 { font-size: clamp(30px, 6vw, 52px); line-height: 1.05; margin: 0 0 12px; }
+.hero h1 span { color: var(--accent); }
+.hero p { color: var(--muted); font-size: 17px; line-height: 1.6; margin: 0 0 16px; max-width: 720px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 20px; }
+.card {
+  background: linear-gradient(180deg, var(--card), var(--bg2));
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 18px;
+}
+.card h3 { margin: 0 0 6px; font-size: 18px; }
+.card p { margin: 6px 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.kv { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid rgba(38, 50, 82, 0.5); font-size: 14px; }
+.kv:last-child { border-bottom: none; }
+.kv .k { color: var(--muted); }
+.kv .v { font-weight: 600; text-align: right; word-break: break-all; }
+.pill {
+  display: inline-block; font-size: 12px; font-weight: 800; padding: 4px 10px;
+  border-radius: 999px; border: 1px solid var(--line); color: var(--muted);
+}
+.pill.green { color: var(--green); border-color: rgba(52, 211, 153, 0.4); }
+.pill.amber { color: var(--amber); border-color: rgba(251, 191, 36, 0.4); }
+.pill.cyan { color: var(--accent); border-color: rgba(34, 211, 238, 0.4); }
+.pill.purple { color: #c4b5fd; border-color: rgba(139, 92, 246, 0.45); }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; word-break: break-all; }
+.notice {
+  border: 1px solid rgba(251, 191, 36, 0.45); background: rgba(251, 191, 36, 0.08);
+  border-radius: 12px; padding: 14px 16px; margin: 16px 0; font-size: 14px; line-height: 1.6;
+}
+.notice.info { border-color: rgba(34, 211, 238, 0.4); background: rgba(34, 211, 238, 0.07); }
+.notice.error { border-color: rgba(248, 113, 113, 0.5); background: rgba(248, 113, 113, 0.08); }
+.empty { text-align: center; padding: 40px 16px; color: var(--muted); }
+.empty h3 { color: var(--text); margin: 0 0 8px; }
+.progress { height: 10px; background: var(--bg2); border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.progress > div { height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
+.two-col { display: grid; grid-template-columns: 1.6fr 1fr; gap: 16px; margin-top: 20px; }
+@media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } }
+.tabs { display: flex; gap: 8px; margin: 16px 0; }
+.tabs button {
+  border: 1px solid var(--line); background: var(--card); color: var(--muted);
+  border-radius: 999px; padding: 9px 16px; font-weight: 700; font-size: 14px;
+}
+.tabs button.active { background: var(--accent); color: #04222b; border-color: var(--accent); }
+footer.site { border-top: 1px solid var(--line); padding: 20px 16px 40px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+footer.site .container { padding-bottom: 0; }
